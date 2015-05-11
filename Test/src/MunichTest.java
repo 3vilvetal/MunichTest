@@ -7,6 +7,10 @@ public class MunichTest {
 	 * Create new array
 	 */
 	public ArrayList<Integer> array = new ArrayList<Integer>();
+	
+	/**
+	 * Define max value
+	 */
 	public int max = Integer.MIN_VALUE;
 	
 	/**

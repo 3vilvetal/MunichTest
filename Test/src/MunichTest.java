@@ -7,6 +7,7 @@ public class MunichTest {
 	 * Create new array
 	 */
 	public ArrayList<Integer> array = new ArrayList<Integer>();
+	public int max = Integer.MIN_VALUE;
 	
 	/**
 	 * Main class for demo
@@ -16,18 +17,11 @@ public class MunichTest {
 		MunichTest test = new MunichTest();
 		
 		//add few values for test
-		test.addElement(4);
-		test.addElement(5);
-		test.addElement(3);
+		test.addElement(-4);
+		test.addElement(-5);
+		test.addElement(-3);
 		
-		//1-st element is max value before circle
-		int max = test.getElement(0);
-		
-		//find the max value in the array
-		for (int i = 0; i < test.getSize(); i++) {
-			if (max < test.getElement(i)) max = test.getElement(i);
-		}
-		System.out.println(max);
+		System.out.println(test.getMaxElement());
 	}
 	
 	/**
@@ -36,6 +30,7 @@ public class MunichTest {
 	 */
 	public void addElement(int element) {
 		array.add(element);
+		checkMaxElement(element);
 	}
 	
 	/**
@@ -53,6 +48,35 @@ public class MunichTest {
 	 */
 	public int getSize() {
 		return array.size();
+	}
+	
+	/**
+	 * Get max value from array
+	 * @param array
+	 * @return
+	 */
+	public int getMax(ArrayList<Integer> array) {
+		int max = array.get(0); //1-st element is max value before circle
+		for (int i = 0; i < array.size(); i++) { //find the max value in the array
+			if (max < array.get(i)) max = array.get(i);
+		}
+		return max;
+	}
+	
+	/**
+	 * Define max element
+	 * @return
+	 */
+	public void checkMaxElement(int number) {
+		if (max < number) max = number;
+	}
+	
+	/**
+	 * Return max element
+	 * @return
+	 */
+	public int getMaxElement() {
+		return max;
 	}
 
 }
